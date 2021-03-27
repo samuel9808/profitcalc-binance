@@ -17,13 +17,16 @@ class Requests {
                 baseURL: `https://api.binance.com/api/v3/ticker/price`,
             })
 
+
+            const expresion = new RegExp(crypto);  //
+
             const resp = await instance.get();
             // Filtro para buscar el par por las primeras 3 letras
             if (crypto.length <= 5){
                 return resp.data.filter( o => o.symbol.substring(0,3) === crypto.substring(0,3));
             }
             // Intento de reutilización de la función que habrá que cambiar.
-            return resp.data.find( p => p.symbol === crypto);
+            return resp.data.filter( o => o.symbol.replace(/\s/g, " ").search(expresion) != -1);
         } catch (error) {
             return[];
         }
