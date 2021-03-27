@@ -26,7 +26,7 @@ class Requests {
                 return resp.data.filter( o => o.symbol.substring(0,3) === crypto.substring(0,3));
             }
             // Intento de reutilización de la función que habrá que cambiar.
-            return resp.data.filter( o => o.symbol.replace(/\s/g, " ").search(expresion) != -1);
+            return resp.data.filter( o => o.symbol.search(expresion) != -1);
         } catch (error) {
             return[];
         }
