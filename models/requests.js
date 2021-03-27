@@ -18,7 +18,7 @@ class Requests {
             })
 
 
-            const expresion = new RegExp(crypto);  //
+            const expresion = new RegExp(crypto);  // Transformar el input en texto plano
 
             const resp = await instance.get();
             // Filtro para buscar el par por las primeras 3 letras
